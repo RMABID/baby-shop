@@ -5,7 +5,7 @@ const NewCollection = () => {
     <div>
       <div>
         <h2 className="text-4xl text-center">NEW COLLECTION</h2>
-        <p className="text-center w-3/6 mx-auto my-4">
+        <p className="text-center md:w-3/6 mx-auto my-4 px-4 lg:w-4/12">
           Discover our carefully curated new collection of baby products,
           designed to provide comfort, safety, and style for your little one.
         </p>
