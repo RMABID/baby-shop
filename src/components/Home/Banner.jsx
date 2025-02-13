@@ -52,7 +52,7 @@ const Banner = () => {
 
               <Link
                 to="/all-artifacts"
-                className="p-3 inline-flex items-center gap-3 hover:bg-transparent hover:border-2 border-red-600 hover:text-red-600 text-lg font-semibold text-white font-agu rounded-full px-12 bg-[#a86104] hover:bg-[#F4F3F0] transition-all duration-300"
+                className="p-3 inline-flex items-center gap-3  hover:border-2 border-red-600 hover:text-red-600 text-lg font-semibold text-white font-agu rounded-full px-12 bg-[#a86104] hover:bg-[#F4F3F0] transition-all duration-300"
               >
                 See All Artifacts
                 <span className="text-xl text-white hover:text-red-500 transition-all duration-300">
