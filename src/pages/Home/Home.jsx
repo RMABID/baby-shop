@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Banner from "../../components/Home/Banner";
 import LatestProducts from "../../components/Home/LatestProducts";
 import NewCollection from "../../components/Home/NewCollection";
@@ -8,7 +9,6 @@ import useAuth from "../../hooks/useAuth";
 
 const Home = () => {
   const { user } = useAuth();
-  console.log(user);
   return (
     <div>
       <Banner />

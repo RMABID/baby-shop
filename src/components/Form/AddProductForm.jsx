@@ -21,6 +21,53 @@ const AddProductForm = ({ handleAddProduct }) => {
             className="input input-bordered w-full"
           />
         </div>
+
+        <div>
+          <label className="block text-lg font-medium mb-2">Category :</label>
+          <select
+            defaultValue="default"
+            className="select w-full"
+            name="category"
+          >
+            <option disabled={true} value={"default"}>
+              Select Category
+            </option>
+            <option>Doll</option>
+            <option>Bead</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div>
+          <label className="block text-lg font-medium mb-2">Brand :</label>
+          <select defaultValue="default" className="select w-full" name="brand">
+            <option disabled={true} value={"default"}>
+              Select Brand
+            </option>
+            <option>Top</option>
+            <option>Medium</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div>
+          <label className="block text-lg font-medium mb-2">Weight :</label>
+          <input
+            required
+            type="number"
+            name="weight"
+            placeholder="Enter Product Price "
+            className="input input-bordered w-full"
+          />
+        </div>
+        <div>
+          <label className="block text-lg font-medium mb-2">Price :</label>
+          <input
+            required
+            type="number"
+            name="price"
+            placeholder="Enter Product Price "
+            className="input input-bordered w-full"
+          />
+        </div>
         <div>
           <label className="block text-lg font-medium mb-2">Owner Name :</label>
           <input
@@ -47,20 +94,7 @@ const AddProductForm = ({ handleAddProduct }) => {
             className="input input-bordered w-full"
           />
         </div>
-        <div>
-          <label className="block text-lg font-medium mb-2">
-            External Links :
-          </label>
-          <input
-            required
-            type="url"
-            name="external_links"
-            placeholder="Enter Your External Links"
-            className="input input-bordered w-full"
-          />
-        </div>
 
-        {/* Historical Context */}
         <div className="md:col-span-2">
           <label className="block text-lg font-medium text-gray-700">
             Description :
@@ -79,7 +113,21 @@ const AddProductForm = ({ handleAddProduct }) => {
             Product Image :
           </label>
 
-          <input type="file" className="file-input" required name="image" />
+          <input type="file" className="file-input" required name="image1" />
+        </div>
+        <div>
+          <label className="block text-lg font-medium mb-2">
+            Product Image :
+          </label>
+
+          <input type="file" className="file-input" name="image2" />
+        </div>
+        <div>
+          <label className="block text-lg font-medium mb-2">
+            Product Image :
+          </label>
+
+          <input type="file" className="file-input" name="image3" />
         </div>
         <div className="md:col-span-2 text-xl font-rancho-font 2 text-center">
           <button
