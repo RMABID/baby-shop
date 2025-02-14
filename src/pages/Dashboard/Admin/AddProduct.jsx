@@ -24,6 +24,7 @@ const AddProduct = () => {
     const p_image2 = await imageUpload(image2);
     const p_image3 = await imageUpload(image3);
 
+
     const newProduct = {
       product_name,
       category,

@@ -20,10 +20,9 @@ const AllProducts = () => {
             <th>Image</th>
             <th>Name</th>
             <th>Category</th>
-            <th>Size</th>
-            <th>Box</th>
-            <th>Quantity (FT)</th>
-            <th>Latest Add</th>
+            <th>Brand</th>
+            <th>Email</th>
+
             <th>Action</th>
           </tr>
         </thead>

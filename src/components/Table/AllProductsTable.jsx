@@ -17,6 +17,7 @@ const AllProductsTable = ({ item, refetch }) => {
   const handleDelete = async (id) => {
     try {
       await axiosSecure.delete(`/product/${id}`);
+      toast.success("Delete Success");
       refetch();
     } catch (error) {
       console.log(error);
