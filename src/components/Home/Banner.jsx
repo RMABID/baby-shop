@@ -36,25 +36,18 @@ const Banner = () => {
             {/* Semi-transparent black overlay */}
             <div className="absolute inset-0 "></div>
 
-            <div className="absolute hidden z-10 text-left top-0 w-full h-full md:flex flex-col justify-center items-start px-32">
-              <h1 className="lg:text-6xl  font-Garamond md:text-5xl font-bold text-white">
-                Historical Artifacts
-                <br />
-                <span className="text-[#f2b872] font-agu font-light"></span>
-              </h1>
+            <div className="absolute space-y-4 hidden z-10 text-left top-0 w-full h-full md:flex flex-col justify-center items-center px-32">
+              <p className="text-white">WELCOME TO PLAYGROW</p>
 
-              <p className="text-lg my-4 lg:w-4/6 font-Garamond text-gray-200 font-medium opacity-90">
-                A Historical Artifacts Tracker is a digital system designed to
-                manage and monitor artifacts, providing detailed records and
-                insights into their history, location, condition, and
-                provenance.
-              </p>
+              <h1 className="lg:text-5xl text-center font-Garamond md:text-4xl font-medium text-white">
+                THE MAGIC PLACE OF <br /> FUN & GAMES
+              </h1>
 
               <Link
                 to="/all-artifacts"
-                className="p-3 inline-flex items-center gap-3  hover:border-2 border-red-600 hover:text-red-600 text-lg font-semibold text-white font-agu rounded-full px-12 bg-[#a86104] hover:bg-[#F4F3F0] transition-all duration-300"
+                className="p-3 uppercase inline-flex items-center gap-3  hover:border-2 border-red-600 hover:text-red-600 text-lg font-semibold text-white font-agu rounded-full px-12 bg-[#a86104] hover:bg-[#F4F3F0] transition-all duration-300"
               >
-                See All Artifacts
+                Shop Now
                 <span className="text-xl text-white hover:text-red-500 transition-all duration-300">
                   <FaArrowCircleRight />
                 </span>
