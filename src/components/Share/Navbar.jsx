@@ -62,11 +62,12 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end flex items-center gap-4">
         <button className="btn flex items-center">
           <img className="w-6" src={cart_icon} alt="" />
           <span className="-mt-5">0</span>
         </button>
+        <button className="btn bg-lime-300">Login</button>
       </div>
     </div>
   );
