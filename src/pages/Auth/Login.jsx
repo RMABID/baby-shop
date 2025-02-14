@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import login_img from "../../assets/image/cate doll.png";
 import bg from "../../assets/image/banner 1.jpg";
 import useAuth from "../../hooks/useAuth";
+import { saveUser } from "../../api/utils";
 // import { saveUser } from "../../api/utils";
 
 const Login = () => {
@@ -33,7 +34,7 @@ const Login = () => {
   const handleGoogleLogin = async () => {
     try {
       const data = await loginGoogle();
-      //   await saveUser(data?.user);
+      await saveUser(data?.user);
       toast.success("SuccessFully Login");
       navigate(from, { replace: true });
     } catch (error) {

@@ -1,4 +1,5 @@
 import axios from "axios";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const imageUpload = async (imageData) => {
   const formData = new FormData();
@@ -14,16 +15,14 @@ const imageUpload = async (imageData) => {
 export default imageUpload;
 
 export const saveUser = async (user) => {
+  const axiosSecure = useAxiosSecure();
   console.log(user);
   const userInFo = {
     name: user?.displayName,
     image: user?.photoURL,
     email: user?.email,
   };
-  await axios.post(
-    `https://product-hunt-server-sigma.vercel.app/users`,
-    userInFo
-  );
+  await axiosSecure.post(`/users`, userInFo);
 };
 // if (currentUser?.email) {
 //   const userInFo = {

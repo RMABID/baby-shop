@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import signup_img from "../../assets/image/camera.png";
 import bg from "../../assets/image/Header_v4_2048x2048.webp";
 import useAuth from "../../hooks/useAuth";
-import imageUpload from "../../api/utils";
+import imageUpload, { saveUser } from "../../api/utils";
 
 const Register = () => {
   const { createUser, updateUserProfile, loginGoogle } = useAuth();
@@ -27,7 +27,7 @@ const Register = () => {
     try {
       const result = await createUser(email, password);
       await updateUserProfile(name, photoURL);
-      //   await saveUser({ ...result?.user, displayName: name, photoURL });
+      await saveUser({ ...result?.user, displayName: name, photoURL });
       toast.success("SuccessFully Login");
       navigate(from, { replace: true });
     } catch (error) {
@@ -38,7 +38,7 @@ const Register = () => {
   const handleGoogleLogin = async () => {
     try {
       const data = await loginGoogle();
-      //   await saveUser(data?.user);
+      await saveUser(data?.user);
       toast.success("SuccessFully Login");
       navigate(from, { replace: true });
     } catch (error) {
