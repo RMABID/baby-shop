@@ -11,7 +11,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 const OfferNews = () => {
   return (
     <div className="md:flex gap-12 border-[#F7F3F0] justify-center items-center my-12 border-t border-b ">
-      <div className="flex-1 px-6 border-x border-[#e6baa5] bg-[#FCFAF9] py-14">
+      <div className="flex-1 px-6 md:border-x border-[#e6baa5] bg-[#FCFAF9] py-14">
         <Swiper
           spaceBetween={5}
           autoplay={{
@@ -21,12 +21,12 @@ const OfferNews = () => {
           modules={[Autoplay, Pagination, Navigation, EffectCards]}
           effect={"cards"}
           grabCursor={true}
-          className="mySwiper w-[440px] h-[520px] p-2"
+          className="mySwiper md:w-[440px] px-8 w-70 md:h-[520px] p-2"
         >
           <SwiperSlide>
             <div>
               <img
-                className="w-full h-[550px]  object-cover"
+                className="w-full md:h-[550px] h-90 object-cover"
                 src={slider_imag}
                 alt=""
               />
@@ -35,7 +35,7 @@ const OfferNews = () => {
           <SwiperSlide>
             <div>
               <img
-                className="w-full h-[550px]  object-cover"
+                className="w-full md:h-[550px]  h-90 object-cover"
                 src={slider_imag2}
                 alt=""
               />
@@ -44,7 +44,7 @@ const OfferNews = () => {
           <SwiperSlide>
             <div>
               <img
-                className="w-full h-[550px]  object-cover"
+                className="w-full md:h-[550px] h-90 object-cover"
                 src={slider_imag2}
                 alt=""
               />
@@ -53,7 +53,7 @@ const OfferNews = () => {
         </Swiper>
       </div>
       <div
-        className="flex-1 justify-center py-14 items-center flex flex-col
+        className="flex-1 justify-center px-8 py-14 items-center flex flex-col
       "
       >
         <h1 className="text-3xl font-medium my-10">RECENT NEWS</h1>
