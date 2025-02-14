@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { GrLogout } from "react-icons/gr";
 import { RxCross1 } from "react-icons/rx";
 import useAuth from "../../../hooks/useAuth";
+import AdminMenu from "../Menu/AdminMenu";
 
 const Sidebar = () => {
   const { logOut } = useAuth();
@@ -15,9 +16,9 @@ const Sidebar = () => {
     setActive(!isActive);
   };
 
-//   if (isLoading || isPending) {
-//     return <LoadingSpinier />;
-//   }
+  //   if (isLoading || isPending) {
+  //     return <LoadingSpinier />;
+  //   }
   return (
     <section>
       {/* Small Screen Navbar */}
@@ -62,7 +63,7 @@ const Sidebar = () => {
           <div className="flex flex-col justify-between flex-1 mt-6">
             <nav>
               {/*  Menu Items */}
-
+              <AdminMenu />
               {/* <User />
               <Moderator />
               <Admin /> */}

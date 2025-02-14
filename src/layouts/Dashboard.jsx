@@ -7,7 +7,9 @@ const Dashboard = () => {
       <div>
         <Sidebar />
       </div>
-      <Outlet />
+      <section className="flex-1 md:ml-64">
+        <Outlet />
+      </section>
     </section>
   );
 };
