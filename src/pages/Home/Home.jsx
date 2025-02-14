@@ -4,8 +4,11 @@ import NewCollection from "../../components/Home/NewCollection";
 import News from "../../components/Home/News";
 import OfferNews from "../../components/Home/OfferNews";
 import Playground from "../../components/Home/Playground";
+import useAuth from "../../hooks/useAuth";
 
 const Home = () => {
+  const { user } = useAuth();
+  console.log(user);
   return (
     <div>
       <Banner />
