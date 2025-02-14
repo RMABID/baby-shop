@@ -16,7 +16,6 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              {" "}
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -36,6 +35,9 @@ const Navbar = () => {
             <li>
               <NavLink to={"/shop"}>Shop</NavLink>
             </li>
+            <li>
+              <NavLink to={"/dashboard"}>Dashboard</NavLink>
+            </li>
           </ul>
         </div>
         <a className="btn btn-ghost text-xl">Baby Shop</a>
@@ -48,6 +50,9 @@ const Navbar = () => {
 
           <li>
             <NavLink to={"/shop"}>Shop</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/dashboard"}>Dashboard</NavLink>
           </li>
           <li>
             <details>
