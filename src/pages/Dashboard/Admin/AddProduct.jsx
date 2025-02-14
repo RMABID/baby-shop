@@ -2,6 +2,7 @@ import React from "react";
 import AddProductForm from "../../../components/Form/AddProductForm";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
+import imageUpload from "../../../api/utils";
 
 const AddProduct = () => {
   const axiosSecure = useAxiosSecure();
@@ -16,9 +17,12 @@ const AddProduct = () => {
     const owner_name = form.owner_name.value;
     const owner_email = form.owner_email.value;
     const description = form.description.value;
-    const image1 = form.image1.value;
-    const image2 = form.image2.value;
-    const image3 = form.image3.value;
+    const image1 = form.image1.files[0];
+    const image2 = form.image2.files[0];
+    const image3 = form.image3.files[0];
+    const p_image = await imageUpload(image1);
+    const p_image2 = await imageUpload(image2);
+    const p_image3 = await imageUpload(image3);
 
     const newProduct = {
       product_name,
@@ -29,7 +33,7 @@ const AddProduct = () => {
       owner_email,
       owner_name,
       description,
-      image: [image1, image2, image3],
+      image: [p_image, p_image2, p_image3],
     };
 
     try {

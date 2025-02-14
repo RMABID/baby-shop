@@ -120,14 +120,14 @@ const AddProductForm = ({ handleAddProduct }) => {
             Product Image :
           </label>
 
-          <input type="file" className="file-input" name="image2" />
+          <input type="file" className="file-input" required name="image2" />
         </div>
         <div>
           <label className="block text-lg font-medium mb-2">
             Product Image :
           </label>
 
-          <input type="file" className="file-input" name="image3" />
+          <input type="file" className="file-input" required name="image3" />
         </div>
         <div className="md:col-span-2 text-xl font-rancho-font 2 text-center">
           <button
