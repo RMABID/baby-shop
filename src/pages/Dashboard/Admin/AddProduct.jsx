@@ -1,7 +1,10 @@
 import React from "react";
 import AddProductForm from "../../../components/Form/AddProductForm";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 
 const AddProduct = () => {
+  const axiosSecure = useAxiosSecure();
   const handleAddProduct = async (event) => {
     event.preventDefault();
     const form = event.target;
@@ -26,13 +29,17 @@ const AddProduct = () => {
       owner_email,
       owner_name,
       description,
-      image: {
-        image1,
-        image2,
-        image3,
-      },
+      image: [image1, image2, image3],
     };
-    console.log(newProduct);
+
+    try {
+      const result = await axiosSecure.post("/add-product", newProduct);
+      if (result.data.insertedId) {
+        toast.success("Product Successfully Add");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

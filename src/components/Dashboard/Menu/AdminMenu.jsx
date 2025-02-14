@@ -10,6 +10,11 @@ const AdminMenu = () => {
         address={"/dashboard"}
         icon={MdOutlineNoteAdd}
       />
+      <MenuItem
+        text={"All Products"}
+        address={"all-product"}
+        icon={FaUsersCog}
+      />
       <MenuItem text={"User"} address={"users"} icon={FaUsersCog} />
     </div>
   );
