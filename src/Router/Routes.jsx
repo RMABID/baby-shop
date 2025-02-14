@@ -5,7 +5,8 @@ import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
 import Shop from "../pages/Shop/Shop";
 import Dashboard from "../layouts/Dashboard";
-import AddProduct from "../pages/Dashboard/AddProduct";
+import AddProduct from "../pages/Dashboard/Admin/AddProduct";
+import Users from "../pages/Dashboard/Users";
 
 const Routes = createBrowserRouter([
   {
@@ -17,17 +18,17 @@ const Routes = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/shop",
+        path: "shop",
         element: <Shop />,
       },
     ],
   },
   {
-    path: "/login",
+    path: "login",
     element: <Login />,
   },
   {
-    path: "/register",
+    path: "register",
     element: <Register />,
   },
   {
@@ -37,6 +38,10 @@ const Routes = createBrowserRouter([
       {
         index: true,
         element: <AddProduct />,
+      },
+      {
+        path: "users",
+        element: <Users />,
       },
     ],
   },
