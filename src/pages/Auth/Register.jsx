@@ -2,11 +2,11 @@ import { TbFidgetSpinner } from "react-icons/tb";
 import { FaFacebookF } from "react-icons/fa";
 import { IoLogoGithub, IoLogoGoogle } from "react-icons/io";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-// import imageUpload, { saveUser } from "../../api/utils";
 import toast from "react-hot-toast";
 import signup_img from "../../assets/image/camera.png";
 import bg from "../../assets/image/Header_v4_2048x2048.webp";
 import useAuth from "../../hooks/useAuth";
+import imageUpload from "../../api/utils";
 
 const Register = () => {
   const { createUser, updateUserProfile, loginGoogle } = useAuth();
@@ -22,12 +22,12 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     const image = form.image.files[0];
-    // const photoURL = await imageUpload(image);
+    const photoURL = await imageUpload(image);
 
     try {
       const result = await createUser(email, password);
       await updateUserProfile(name, photoURL);
-    //   await saveUser({ ...result?.user, displayName: name, photoURL });
+      //   await saveUser({ ...result?.user, displayName: name, photoURL });
       toast.success("SuccessFully Login");
       navigate(from, { replace: true });
     } catch (error) {
@@ -38,7 +38,7 @@ const Register = () => {
   const handleGoogleLogin = async () => {
     try {
       const data = await loginGoogle();
-    //   await saveUser(data?.user);
+      //   await saveUser(data?.user);
       toast.success("SuccessFully Login");
       navigate(from, { replace: true });
     } catch (error) {
@@ -51,8 +51,8 @@ const Register = () => {
       style={{ backgroundImage: `url(${bg})` }}
       className=" bg-center bg-cover bg-no-repeat"
     >
-      <div className="py-24">
-        <div className="md:flex bg-white md:w-[960px] rounded-xl px-8 justify-center  py-6 mx-auto  shrink-0 shadow-xl">
+      <div className="py-10 px-4">
+        <div className="md:flex bg-white md:w-[960px] rounded-xl justify-center  py-6 mx-auto  shrink-0 shadow-xl">
           <div className="  w-full max-w-sm">
             <form onSubmit={handleSignRegister} className="card-body">
               <div className="form-control">
@@ -102,13 +102,8 @@ const Register = () => {
                 <label className="label">
                   <span className="label-text text-lg font-medium">Photo</span>
                 </label>
-                <input
-                  type="file"
-                  name="image"
-                  placeholder="Type here"
-                  className="input rounded-md input-bordered"
-                  required
-                />
+
+                <input type="file" className="file-input" name="image" />
               </div>
               <div className="form-control mt-2">
                 <button className="btn bg-[#c42fc9b3] text-white text-lg font-medium rounded-md">

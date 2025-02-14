@@ -44,10 +44,10 @@ const Login = () => {
   return (
     <div
       style={{ backgroundImage: `url(${bg})` }}
-      className="bg-center bg-cover bg-no-repeat h-screen"
+      className="bg-center bg-cover bg-no-repeat "
     >
-      <div className="py-24">
-        <div className="md:flex bg-white md:w-[960px] rounded-xl py-12 mx-auto justify-evenly shrink-0 shadow-2xl">
+      <div className="py-10 px-4">
+        <div className="md:flex bg-white md:w-[960px] rounded-xl py-8 mx-auto justify-evenly shrink-0 shadow-2xl">
           <div className="text-center  lg:text-left">
             <img className=" w-full max-w-sm" src={login_img} alt="" />
             <Link

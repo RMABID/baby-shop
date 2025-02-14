@@ -1,7 +1,9 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import cart_icon from "../../assets/icon/shopping-cart.png";
+import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
+  const { user, logOut } = useAuth();
   return (
     <div className="navbar bg-white z-50 shadow-sm fixed w-full">
       <div className="navbar-start">
@@ -67,7 +69,22 @@ const Navbar = () => {
           <img className="w-6" src={cart_icon} alt="" />
           <span className="-mt-5">0</span>
         </button>
-        <button className="btn bg-lime-300">Login</button>
+        {user && user?.email ? (
+          <div className="flex items-center gap-2">
+            <img
+              className="w-10  h-10 object-cover border border-purple-100 p-[2px] rounded-full"
+              alt="User"
+              src={user?.photoURL}
+            />
+            <button onClick={logOut} className="btn">
+              Logout
+            </button>
+          </div>
+        ) : (
+          <Link to={"/login"} className="btn bg-lime-300">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );
