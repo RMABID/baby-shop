@@ -16,7 +16,6 @@ export default imageUpload;
 
 export const saveUser = async (user) => {
   const axiosSecure = useAxiosSecure();
-  console.log(user);
   const userInFo = {
     name: user?.displayName,
     image: user?.photoURL,
@@ -24,10 +23,3 @@ export const saveUser = async (user) => {
   };
   await axiosSecure.post(`/users`, userInFo);
 };
-// if (currentUser?.email) {
-//   const userInFo = {
-//     name: currentUser?.displayName,
-//     email: currentUser?.email,
-//   };
-//   await axiosPublic.post("/users", userInFo);
-// }

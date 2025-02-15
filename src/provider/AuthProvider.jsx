@@ -45,7 +45,6 @@ const AuthProvider = ({ children }) => {
     const subscribe = onAuthStateChanged(auth, async (currentUser) => {
       await saveUser(currentUser);
       setUser(currentUser);
-      console.log(currentUser);
     });
 
     return () => {

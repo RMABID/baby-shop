@@ -22,7 +22,7 @@ const Sidebar = () => {
   return (
     <section>
       {/* Small Screen Navbar */}
-      <div className="bg-purple-50 text-gray-800 flex justify-between md:hidden">
+      <div className="bg-lime-200 text-gray-800 flex justify-between md:hidden">
         <div>
           <div className="block cursor-pointer p-4 font-bold">
             <Link to="/">
@@ -76,7 +76,7 @@ const Sidebar = () => {
 
           <button
             onClick={logOut}
-            className="flex w-full items-center px-4 py-2 mt-5 text-white hover:bg-lime-300  bg-lime-500 rounded-full hover:text-gray-700 transition-colors duration-300 transform"
+            className="flex cursor-pointer w-full items-center px-4 py-2 mt-5 text-white hover:bg-lime-300  bg-lime-500 rounded-full hover:text-gray-700 transition-colors duration-300 transform"
           >
             <GrLogout className="w-5 h-5" />
 
