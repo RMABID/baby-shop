@@ -13,7 +13,7 @@ const UsersTable = ({ item, refetch }) => {
     try {
       await axiosSecure.patch(`/user/${email}`, { role: value });
       refetch();
-      toast.success("Role Updated Successfully");
+      toast.success(`Role Updated Successfully `);
     } catch (error) {
       toast.error(error.message);
     }
