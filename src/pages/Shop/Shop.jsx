@@ -25,13 +25,13 @@ const Shop = () => {
         <Link to={"/"}>Home</Link> <IoIosArrowForward />{" "}
         <Link to={"/shop"}>Shop</Link>
       </div>
-      <div className="w-10/12 mx-auto grid grid-cols-12 gap-8">
-        <div className="col-span-2">
+      <div className="w-10/12 my-20 mx-auto grid grid-cols-12 gap-6 justify-center">
+        <div className="col-span-3">
           <h3 className="text-xl">Category</h3>
         </div>
-        <div className="col-span-10 grid grid-cols-3 justify-between ">
-          {all_products?.map((item) => (
-            <ShopCard />
+        <div className="col-span-9 grid md:grid-cols-2 lg:grid-cols-3 justify-between gap-5 ">
+          {all_products?.map((item, index) => (
+            <ShopCard key={index} item={item} />
           ))}
         </div>
       </div>
