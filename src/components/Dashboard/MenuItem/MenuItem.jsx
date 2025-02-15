@@ -12,7 +12,7 @@ const MenuItem = ({ text, address, icon: Icon }) => {
       }
     >
       <Icon className="w-5 h-5" />
-      <span>{text}</span>
+      <span className="ml-2">{text}</span>
     </NavLink>
   );
 };

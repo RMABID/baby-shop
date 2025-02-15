@@ -6,8 +6,8 @@ import Register from "../pages/Auth/Register";
 import Shop from "../pages/Shop/Shop";
 import Dashboard from "../layouts/Dashboard";
 import AddProduct from "../pages/Dashboard/Admin/AddProduct";
-import Users from "../pages/Dashboard/Users";
 import AllProducts from "../pages/Dashboard/Admin/AllProducts";
+import AllUsers from "../pages/Dashboard/Admin/AllUsers";
 
 const Routes = createBrowserRouter([
   {
@@ -45,8 +45,8 @@ const Routes = createBrowserRouter([
         element: <AllProducts />,
       },
       {
-        path: "users",
-        element: <Users />,
+        path: "all-users",
+        element: <AllUsers />,
       },
     ],
   },

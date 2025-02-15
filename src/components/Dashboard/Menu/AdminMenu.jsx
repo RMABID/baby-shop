@@ -15,7 +15,7 @@ const AdminMenu = () => {
         address={"all-product"}
         icon={FaUsersCog}
       />
-      <MenuItem text={"User"} address={"users"} icon={FaUsersCog} />
+      <MenuItem text={"all User"} address={"all-users"} icon={FaUsersCog} />
     </div>
   );
 };
