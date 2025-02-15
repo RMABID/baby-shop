@@ -9,6 +9,7 @@ import {
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase.config";
+import { saveUser } from "../api/utils";
 
 export const AuthContext = createContext(null);
 
@@ -42,7 +43,9 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const subscribe = onAuthStateChanged(auth, async (currentUser) => {
+      await saveUser(currentUser);
       setUser(currentUser);
+      console.log(currentUser);
     });
 
     return () => {

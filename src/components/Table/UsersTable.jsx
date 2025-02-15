@@ -2,7 +2,6 @@ import toast from "react-hot-toast";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const UsersTable = ({ item, refetch }) => {
-  console.log(item);
   const axiosSecure = useAxiosSecure();
   const { name, email, role, image } = item;
 

@@ -39,6 +39,7 @@ const Register = () => {
     try {
       const data = await loginGoogle();
       await saveUser(data?.user);
+      console.log(data);
       toast.success("SuccessFully Login");
       navigate(from, { replace: true });
     } catch (error) {
