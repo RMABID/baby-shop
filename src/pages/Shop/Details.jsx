@@ -1,8 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { IoIosArrowForward } from "react-icons/io";
-import { Link, useParams } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import ProductInFo from "../../components/Products/ProductInFo";
 
 const Details = () => {
   const axiosPublic = useAxiosPublic();
@@ -58,8 +59,6 @@ const Details = () => {
     }
   };
 
-
-
   return (
     <div className="pt-16">
       <div className="flex px-12 items-center gap-2 py-6 bg-[#F7F3F0]">
@@ -76,14 +75,14 @@ const Details = () => {
               {product?.image?.map((item, index) => (
                 <img
                   onClick={() => setImage(item)}
-                  className="w-[24%] sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer"
+                  className="w-[24%] sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer border-1 h-18 rounded-xl border-[#f5b489]"
                   key={index}
                   src={item}
                   alt=""
                 />
               ))}
             </div>
-            <div className="w-full sm:w-[80%]">
+            <div className="w-full sm:w-[80%] border-[0.1px] border-[#f5b489] rounded-xl">
               <img className="w-full h-auto" src={images} alt="Product Image" />
             </div>
           </div>
@@ -121,7 +120,7 @@ const Details = () => {
                 </div>
 
                 {/* Add to Cart Button */}
-                <button className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-2 rounded-md font-semibold">
+                <button className="bg-[#E38443] cursor-pointer hover:bg-[#E38340] text-white px-5 py-2 rounded-md font-semibold">
                   ADD TO CART
                 </button>
               </div>
@@ -133,6 +132,12 @@ const Details = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="my-14">
+          <ProductInFo id={id} />
+          <section className="border border-[#f7b787] rounded-md p-4 my-4 ">
+            <Outlet />
+          </section>
         </div>
       </div>
     </div>
