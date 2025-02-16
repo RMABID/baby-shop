@@ -1,33 +1,64 @@
 import { useQuery } from "@tanstack/react-query";
 import { IoIosArrowForward } from "react-icons/io";
-import { data, Link, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
-import { useEffect, useState } from "react";
 
 const Details = () => {
   const axiosPublic = useAxiosPublic();
   const { id } = useParams();
-  const [images, setImage] = useState("");
+  const [images, setImage] = useState(null);
+  const [quantity, setQuantity] = useState(1);
 
-  const { data: product = {} } = useQuery({
+  const { data: product, isLoading } = useQuery({
     queryKey: ["product", id],
     queryFn: async () => {
       const { data } = await axiosPublic(`/product/${id}`);
-      setImage(data.image[0]);
       return data;
     },
   });
+
+  useEffect(() => {
+    if (product?.image) {
+      setImage(product.image[0]);
+    }
+  }, [product]);
+
+  if (isLoading) return <p>Loading product details...</p>;
+
+  if (!product) return <p>Product not found.</p>;
+
   const {
     product_name,
     category,
     brand,
     price,
     weight,
-    owner_email,
-    owner_name,
     description,
     image,
+    quantity: previousQuantity, // Fix variable name for clarity
   } = product;
+
+  // Correct stock calculation
+  const currentQuantity = previousQuantity - quantity;
+
+  const increaseQuantity = () => {
+    if (quantity < previousQuantity) {
+      setQuantity((prev) => prev + 1);
+    } else {
+      alert("Not enough stock available!");
+    }
+  };
+
+  const decreaseQuantity = () => {
+    if (quantity > 1) {
+      setQuantity((prev) => prev - 1);
+    } else {
+      alert("Quantity cannot be less than 1");
+    }
+  };
+
+
 
   return (
     <div className="pt-16">
@@ -38,8 +69,8 @@ const Details = () => {
         <p>{product_name}</p>
       </div>
       <div className="w-10/12 mx-auto">
-        <div className="flex gap-12 sm:gap-12 flex-col  sm:flex-row my-16">
-          {/* product image */}
+        <div className="flex gap-12 sm:gap-12 flex-col sm:flex-row my-16">
+          {/* Product Image */}
           <div className="flex-1 flex flex-col-reverse gap-3 sm:flex-row">
             <div className="flex sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-between items-center sm:justify-normal sm:w-[18.7%] w-full">
               {product?.image?.map((item, index) => (
@@ -53,30 +84,47 @@ const Details = () => {
               ))}
             </div>
             <div className="w-full sm:w-[80%]">
-              <img className="w-full h-auto" src={images} alt="" />
+              <img className="w-full h-auto" src={images} alt="Product Image" />
             </div>
           </div>
 
-          {/* products info */}
+          {/* Product Info */}
           <div className="flex-1">
-            <h1 className="font-medium md:text-4xl text-2xl  mt-2">
+            <h1 className="font-medium md:text-4xl text-2xl mt-2">
               {product_name}
             </h1>
-            {/* <div className="flex items-center gap-1 mt-2">
-              <img src={assets.star_icon} alt="" className="w-3 5" />
-              <img src={assets.star_icon} alt="" className="w-3 5" />
-              <img src={assets.star_icon} alt="" className="w-3 5" />
-              <img src={assets.star_icon} alt="" className="w-3 5" />
-              <img src={assets.star_dull_icon} alt="" className="w-3 5" />
-              <p className="pl-2">(122)</p>
-            </div> */}
             <p className="mt-5 text-3xl font-medium">${price}</p>
             <p className="mt-5 text-gray-500 md:w-4/5">{description}</p>
-            <div className="flex flex-col gap-4 my-8">
-            
-              <button className="bg-black mt-5 w-60 text-white px-8 py-3 text-sm active:bg-gray-700">
-                Add to Cart
-              </button>
+            <p className="mt-5">
+              <span className="text-xl font-medium">Stock Available:</span>{" "}
+              {currentQuantity}
+            </p>
+            <div className="flex flex-col gap-4 my-4">
+              <div className="flex items-center space-x-4">
+                {/* Quantity Selector */}
+                <div className="flex items-center border border-gray-400 rounded-md">
+                  <button
+                    className="px-3 py-1 border-r border-gray-400 hover:bg-gray-200"
+                    onClick={decreaseQuantity}
+                  >
+                    −
+                  </button>
+                  <span className="px-4 py-1 text-lg font-semibold">
+                    {quantity}
+                  </span>
+                  <button
+                    className="px-3 py-1 border-l border-gray-400 hover:bg-gray-200"
+                    onClick={increaseQuantity}
+                  >
+                    +
+                  </button>
+                </div>
+
+                {/* Add to Cart Button */}
+                <button className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-2 rounded-md font-semibold">
+                  ADD TO CART
+                </button>
+              </div>
               <hr className="mt-4 sm:w-4/5" />
               <div className="text-sm text-gray-500 mt-3 flex flex-col gap-1">
                 <p>100% Original product.</p>
