@@ -31,7 +31,7 @@ const Routes = createBrowserRouter([
         element: <Details />,
         children: [
           {
-            path: "description",
+            index: true,
             element: <ProductDescription />,
           },
           {
