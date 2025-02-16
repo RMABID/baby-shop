@@ -14,6 +14,7 @@ const AddProduct = () => {
     const weight = form.weight.value;
     const brand = form.brand.value;
     const price = form.price.value;
+    const quantity = form.quantity.value;
     const owner_name = form.owner_name.value;
     const owner_email = form.owner_email.value;
     const description = form.description.value;
@@ -29,6 +30,7 @@ const AddProduct = () => {
       category,
       brand,
       price: parseInt(price),
+      quantity: parseInt(quantity),
       weight,
       owner_email,
       owner_name,

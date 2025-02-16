@@ -69,6 +69,16 @@ const AddProductForm = ({ handleAddProduct }) => {
           />
         </div>
         <div>
+          <label className="block text-lg font-medium mb-2">Quantity (ps) :</label>
+          <input
+            required
+            type="number"
+            name="quantity"
+            placeholder="Enter Product Price "
+            className="input input-bordered w-full"
+          />
+        </div>
+        <div>
           <label className="block text-lg font-medium mb-2">Owner Name :</label>
           <input
             required
