@@ -19,8 +19,8 @@ const ProductDescription = () => {
     product;
 
   return (
-    <div className="flex justify-center">
-      <div>
+    <div className="md:flex justify-center p-4">
+      <div className="py-8">
         <p className="w-4/5 ">{description}</p>
         <div className="my-8">
           <p>
