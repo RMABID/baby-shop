@@ -4,6 +4,7 @@ import { Link, Outlet, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import ProductInFo from "../../components/Products/ProductInFo";
+import RelatedProducts from "../../components/Products/RelatedProducts";
 
 const Details = () => {
   const axiosPublic = useAxiosPublic();
@@ -138,6 +139,7 @@ const Details = () => {
           <section className="border border-[#f7b787] rounded-md p-4 my-4 ">
             <Outlet />
           </section>
+          <RelatedProducts category={category} />
         </div>
       </div>
     </div>
