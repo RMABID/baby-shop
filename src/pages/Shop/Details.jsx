@@ -17,7 +17,7 @@ const Details = () => {
   const axiosPublic = useAxiosPublic();
   const { id } = useParams();
   const [images, setImage] = useState(null);
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(0);
 
   const { data: product, isLoading } = useQuery({
     queryKey: ["product", id],
@@ -68,13 +68,18 @@ const Details = () => {
   };
 
   const handleAddToCart = async () => {
+    if (quantity === 0) {
+      return toast.error("No available Stock");
+    }
     const order = {
       product_order_id: id,
       email: user?.email,
       name: user?.name,
-      price: price * quantity,
+      total_price: price * quantity,
+      price,
       product_image: image[0],
       total_quantity: quantity,
+      product_name,
     };
 
     try {
