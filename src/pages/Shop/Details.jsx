@@ -10,7 +10,7 @@ import Reviews from "../../components/Products/Reviews";
 import useAuth from "../../hooks/useAuth";
 
 const Details = () => {
-  const { reviews } = useAuth();
+  const { reviews, user } = useAuth();
   const axiosPublic = useAxiosPublic();
   const { id } = useParams();
   const [images, setImage] = useState(null);
@@ -61,6 +61,23 @@ const Details = () => {
       setQuantity((prev) => prev - 1);
     } else {
       alert("Quantity cannot be less than 1");
+    }
+  };
+
+  const handleAddToCart = async () => {
+    const order = {
+      product_order_id: id,
+      email: user?.email,
+      name: user?.name,
+      price: price * quantity,
+      product_image: image[0],
+      total_quantity: quantity,
+    };
+
+    try {
+      await axiosPublic.post("/order", order);
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -125,7 +142,10 @@ const Details = () => {
                 </div>
 
                 {/* Add to Cart Button */}
-                <button className="bg-[#E38443] cursor-pointer hover:bg-[#E38340] text-white px-5 py-2 rounded-md font-semibold">
+                <button
+                  onClick={handleAddToCart}
+                  className="bg-[#E38443] cursor-pointer hover:bg-[#E38340] text-white px-5 py-2 rounded-md font-semibold"
+                >
                   ADD TO CART
                 </button>
               </div>
