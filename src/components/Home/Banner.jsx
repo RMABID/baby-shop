@@ -90,7 +90,7 @@ const Banner = () => {
                   className="flex items-center w-full justify-center cursor-pointer hover:scale-110 duration-500 transition-all mt-4"
                 >
                   <Link
-                    to="/all-artifacts"
+                    to="/shop"
                     className="p-3 group uppercase inline-flex items-center gap-3  hover:border-2 border-red-600 hover:text-red-600 text-lg font-semibold text-white   rounded-full px-12 bg-[#E38443] hover:bg-[#F4F3F0] transition-all duration-300"
                   >
                     Shop Now
