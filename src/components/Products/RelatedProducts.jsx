@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import ShopCard from "../Share/ShopCard";
 
-const RelatedProducts = ({ category }) => {
+const RelatedProducts = ({ id, category }) => {
   const axiosPublic = useAxiosPublic();
 
   const {
@@ -10,7 +10,7 @@ const RelatedProducts = ({ category }) => {
     refetch,
     isLoading,
   } = useQuery({
-    queryKey: ["all-products"],
+    queryKey: ["all-products", id],
     queryFn: async () => {
       const { data } = await axiosPublic(`/all-products`);
       return data;

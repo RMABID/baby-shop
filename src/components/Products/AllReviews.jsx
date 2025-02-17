@@ -1,12 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useAuth from "../../hooks/useAuth";
+import LoadingSpinner from "../Share/LoadingSpinner";
 
 const AllReviews = ({ id }) => {
   const { setReviews } = useAuth();
   const axiosPublic = useAxiosPublic();
   const { data: reviews = [], isLoading } = useQuery({
-    queryKey: ["all-reviews"],
+    queryKey: ["all-reviews", id],
     queryFn: async () => {
       const { data } = await axiosPublic(`/all-reviews/${id}`);
 
@@ -14,7 +15,7 @@ const AllReviews = ({ id }) => {
       return data;
     },
   });
-
+  if (isLoading) return <LoadingSpinner />;
   return (
     <div className="md:grid grid-cols-2 gap-4">
       {reviews?.map((item, index) => (

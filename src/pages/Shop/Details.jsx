@@ -175,7 +175,7 @@ const Details = () => {
             </div>
           </div>
 
-          <RelatedProducts category={category} />
+          <RelatedProducts id={id} category={category} />
         </div>
       </div>
     </div>
