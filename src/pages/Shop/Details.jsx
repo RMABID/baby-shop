@@ -83,7 +83,7 @@ const Details = () => {
                 />
               ))}
             </div>
-            <div className="w-full sm:w-[80%] border-[0.1px] border-[#f5b489] rounded-xl">
+            <div className="w-full  sm:w-[80%] border-[0.1px] border-[#f5b489] rounded-xl">
               <img className="w-full h-auto" src={images} alt="Product Image" />
             </div>
           </div>
