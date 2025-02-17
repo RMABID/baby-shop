@@ -3,9 +3,12 @@ import cart_icon from "../../assets/icon/shopping-cart.png";
 import useAuth from "../../hooks/useAuth";
 import { RxCross1 } from "react-icons/rx";
 import { CiMenuBurger } from "react-icons/ci";
+import useOrder from "../../hooks/useOrder";
 
 const Navbar = ({ handleToggle, isActive }) => {
   const { user, logOut } = useAuth();
+  const [order] = useOrder();
+  console.log(order);
 
   return (
     <div className="navbar bg-white z-50 shadow-sm fixed w-full">
@@ -44,7 +47,9 @@ const Navbar = ({ handleToggle, isActive }) => {
           <div className="flex items-center gap-2">
             <button className="btn flex items-center">
               <img className="w-6" src={cart_icon} alt="" />
-              <span className="-mt-5">0</span>
+              <span className="-mt-5 text-sm w-6 h-5 mx-auto text-center  aspect-square rounded-full bg-[#f1caab]">
+                {order.length}
+              </span>
             </button>
             <img
               className="w-10  h-10 object-cover border border-purple-100 p-[2px] rounded-full"

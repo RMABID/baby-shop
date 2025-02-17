@@ -8,9 +8,12 @@ import ProductDescription from "../../components/Products/ProductDescription";
 import AdditionalInFo from "../../components/Products/AdditionalInFo";
 import Reviews from "../../components/Products/Reviews";
 import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
+import useOrder from "../../hooks/useOrder";
 
 const Details = () => {
   const { reviews, user } = useAuth();
+  const [, refetch] = useOrder();
   const axiosPublic = useAxiosPublic();
   const { id } = useParams();
   const [images, setImage] = useState(null);
@@ -76,6 +79,8 @@ const Details = () => {
 
     try {
       await axiosPublic.post("/order", order);
+      refetch();
+      toast.success("Order Success");
     } catch (error) {
       console.log(error);
     }
