@@ -66,7 +66,7 @@ const Reviews = () => {
         <div>
           <p className="text-xl">Your Rating *</p>
           <div className="rating my-3">
-            {[1, 2, 3, 4, 5].map((star) => (
+            {[1, 2, 3, 4, 5]?.map((star) => (
               <input
                 key={star}
                 type="radio"

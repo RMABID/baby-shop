@@ -31,7 +31,7 @@ const Shop = () => {
         <div className="col-span-3 md:block hidden">
           <h3 className="text-xl">Category</h3>
           <div className="flex flex-col my-14 items-start">
-            {all_products.map((item, index) => (
+            {all_products?.map((item, index) => (
               <p key={index} className="m-1">
                 {item.category}
               </p>

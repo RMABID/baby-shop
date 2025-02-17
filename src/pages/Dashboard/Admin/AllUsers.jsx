@@ -34,7 +34,7 @@ const AllUsers = () => {
             </tr>
           </thead>
           <tbody className="text-center ">
-            {users.map((item, index) => (
+            {users?.map((item, index) => (
               <UsersTable refetch={refetch} key={index} item={item} />
             ))}
           </tbody>

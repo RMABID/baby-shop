@@ -27,7 +27,7 @@ const AllProducts = () => {
           </tr>
         </thead>
         <tbody className="text-center ">
-          {products.map((item, index) => (
+          {products?.map((item, index) => (
             <AllProductsTable
               axiosSecure={axiosSecure}
               refetch={refetch}
