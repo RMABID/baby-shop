@@ -18,6 +18,7 @@ const AuthProvider = ({ children }) => {
   //   const axiosPublic = useAxiosPublic();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [reviews, setReviews] = useState([]);
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
@@ -60,6 +61,8 @@ const AuthProvider = ({ children }) => {
     loginGoogle,
     loading,
     user,
+    setReviews,
+    reviews,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

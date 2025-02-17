@@ -4,17 +4,23 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
+import AllReviews from "./AllReviews";
 
 const Reviews = () => {
-  const { user } = useAuth();
+  const { user, reviews } = useAuth();
   const axiosPublic = useAxiosPublic();
   const { id } = useParams();
   const [rating, setRating] = useState(1);
 
-  const { data: product, isLoading } = useQuery({
+  const {
+    data: product = {},
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["product", id],
     queryFn: async () => {
       const { data } = await axiosPublic(`/product/${id}`);
+
       return data;
     },
   });
@@ -35,11 +41,14 @@ const Reviews = () => {
       review,
       rating,
       product_id: id,
+      image: user?.photoURL,
     };
     try {
       const { data } = await axiosPublic.post(`/review`, reviewPost);
       if (data.insertedId) {
         toast.success("Review Submit");
+        event.target.reset();
+        refetch();
       }
       console.log(data.insertedId);
     } catch (error) {
@@ -50,10 +59,10 @@ const Reviews = () => {
   return (
     <div className="p-4">
       <h1 className="text-xl font-semibold uppercase">
-        Review for {product_name}
+        {reviews.length} Review for {product_name}
       </h1>
-      <div className="h-40 border my-4 flex items-center justify-center text-gray-500">
-        Coming soon...
+      <div className="">
+        <AllReviews id={id} />
       </div>
       <div className="flex flex-col gap-8">
         <div>

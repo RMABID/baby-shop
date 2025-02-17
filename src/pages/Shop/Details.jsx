@@ -3,10 +3,14 @@ import { IoIosArrowForward } from "react-icons/io";
 import { Link, Outlet, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
-import ProductInFo from "../../components/Products/ProductInFo";
 import RelatedProducts from "../../components/Products/RelatedProducts";
+import ProductDescription from "../../components/Products/ProductDescription";
+import AdditionalInFo from "../../components/Products/AdditionalInFo";
+import Reviews from "../../components/Products/Reviews";
+import useAuth from "../../hooks/useAuth";
 
 const Details = () => {
+  const { reviews } = useAuth();
   const axiosPublic = useAxiosPublic();
   const { id } = useParams();
   const [images, setImage] = useState(null);
@@ -135,10 +139,42 @@ const Details = () => {
           </div>
         </div>
         <div className="my-14">
-          <ProductInFo id={id} />
-          <section className="border border-[#f7b787] rounded-md p-4 my-4 ">
-            <Outlet />
-          </section>
+          <div>
+            {/* name of each tab group should be unique */}
+            <div className="tabs tabs-lift ">
+              <input
+                type="radio"
+                name="my_tabs_3"
+                className="tab"
+                aria-label="Description"
+                defaultChecked
+              />
+              <div className="tab-content bg-base-100  border-[#f7b787] p-6">
+                <ProductDescription />
+              </div>
+
+              <input
+                type="radio"
+                name="my_tabs_3"
+                className="tab text-xl"
+                aria-label="Additional information"
+              />
+              <div className="tab-content bg-base-100  border-[#f7b787] p-6">
+                <AdditionalInFo />
+              </div>
+
+              <input
+                type="radio"
+                name="my_tabs_3"
+                className="tab text-xl"
+                aria-label={`Reviews (${reviews.length})`}
+              />
+              <div className="tab-content bg-base-100 border-[#f7b787] p-6">
+                <Reviews />
+              </div>
+            </div>
+          </div>
+
           <RelatedProducts category={category} />
         </div>
       </div>

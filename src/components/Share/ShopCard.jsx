@@ -5,6 +5,7 @@ const ShopCard = ({ item }) => {
   return (
     <Link
       to={`/shop/${_id}`}
+      id="top"
       className="flex flex-col overflow-hidden group gap-3 items-center justify-center border p-2 rounded-xl"
     >
       <div>
@@ -14,7 +15,7 @@ const ShopCard = ({ item }) => {
         <p>{brand}</p>
         <h2 className="lg:text-2xl md:text-xl text-black">{product_name}</h2>
         <p className="absolute  uppercase bottom-0 duration-500 transition-all group-hover:-bottom-full ">
-          {price}
+          $ {price}
         </p>
         <p className="text-lg absolute text-[#E38443] uppercase -bottom-full duration-500 transition-all group-hover:bottom-0 ">
           Add to Cart
