@@ -9,7 +9,7 @@ import AddProduct from "../pages/Dashboard/Admin/AddProduct";
 import AllProducts from "../pages/Dashboard/Admin/AllProducts";
 import AllUsers from "../pages/Dashboard/Admin/AllUsers";
 import Details from "../pages/Shop/Details";
-
+import MyOrder from "../pages/Dashboard/Users/MyOrder";
 
 const Routes = createBrowserRouter([
   {
@@ -27,6 +27,10 @@ const Routes = createBrowserRouter([
       {
         path: "shop/:id",
         element: <Details />,
+      },
+      {
+        path: "my-order",
+        element: <MyOrder />,
       },
     ],
   },
