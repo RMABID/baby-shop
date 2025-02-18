@@ -48,7 +48,7 @@ const SmallNavbar = ({ isActive, setActive }) => {
 
           <button
             onClick={logOut}
-            className="flex w-full items-center px-4 py-2 mt-5 text-white hover:bg-[#E38443]  bg-[#91C6BE] rounded-full hover:text-white transition-colors duration-300 transform"
+            className="flex w-full items-center px-4 py-2 mt-5 text-white bg-[#E38443]  hover:bg-[#91C6BE] rounded-full hover:text-white transition-colors duration-300 transform"
           >
             <GrLogout className="w-5 h-5" />
 
