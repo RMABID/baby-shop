@@ -5,7 +5,7 @@ import LoadingSpinner from "../Share/LoadingSpinner";
 const LatestProducts = () => {
   const [all_products, , isLoading] = useCard();
   if (isLoading) return <LoadingSpinner />;
-  console.log(all_products);
+
   return (
     <div className="grid md:grid-cols-3 border-[#F7F3F0] justify-center items-center my-12 border-t border-b">
       {all_products?.slice(0, 3).map((item, index) => (
