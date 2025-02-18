@@ -4,6 +4,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { Link } from "react-router-dom";
 import useOrder from "../../../hooks/useOrder";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import toast from "react-hot-toast";
 
 const MyOrder = () => {
   const axiosPublic = useAxiosPublic();
@@ -26,6 +27,10 @@ const MyOrder = () => {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const handleChackOut = () => {
+    toast.success("payment coming soon");
   };
 
   return (
@@ -125,7 +130,10 @@ const MyOrder = () => {
             <p className="text-2xl">Total</p>
             <p>$ {totalPrice}</p>
           </div>
-          <button className="btn bg-[#DB915E] uppercase text-white py-7">
+          <button
+            onClick={handleChackOut}
+            className="btn bg-[#DB915E] uppercase text-white py-7"
+          >
             product to checkout
           </button>
         </div>

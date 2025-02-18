@@ -1,8 +1,33 @@
-# React + Vite
+# 🍼 Baby Shop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **Baby Shop**, an e-commerce platform designed for parents to shop for baby products, toys, and more. This project features a beautiful UI with **React.js, Tailwind CSS, and DaisyUI** on the frontend, while the backend is powered by **Node.js and MongoDB**.
 
-Currently, two official plugins are available:
+![Baby Shop Banner](./src/assets/image/Screenshot%202025-02-18%20112930.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Table of Contents
+
+- [✨ Features](#-features)
+- [📂 Project Structure](#-project-structure)
+- [🛠 Installation](#-installation)
+- [🚀 Usage](#-usage)
+- [🏗 Technologies Used](#-technologies-used)
+- [⚙ Configuration](#-configuration)
+- [🔧 API Endpoints](#-api-endpoints)
+- [🛠 Troubleshooting](#-troubleshooting)
+- [🤝 Contributors](#-contributors)
+- [📜 License](#-license)
+
+---
+
+## ✨ Features
+
+✅ **Modern UI/UX** - Built with React.js, Tailwind CSS & DaisyUI.  
+✅ **Product Listings** - View and browse a variety of baby products.  
+✅ **Secure Authentication** - Login & Register using JWT authentication.  
+✅ **Shopping Cart** - Add items to your cart and manage your orders.  
+✅ **MongoDB Database** - Store products, users, and orders efficiently.  
+✅ **Easy Deployment** - Hosted on Firebase & Render.
+
+
+
+
