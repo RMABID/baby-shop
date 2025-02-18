@@ -1,6 +1,6 @@
 import { GrLogout } from "react-icons/gr";
 import { Link, NavLink } from "react-router-dom";
-import logo from "../../assets/icon/heart.png";
+import logo from "../../assets/image/cate doll.png";
 import useAuth from "../../hooks/useAuth";
 
 const SmallNavbar = ({ isActive, setActive }) => {
@@ -13,7 +13,7 @@ const SmallNavbar = ({ isActive, setActive }) => {
         } lg:translate-x-0 transition duration-500 ease-in-out`}
       >
         <div>
-          <div className="w-full  z-50 md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center bg-lime-100 mx-auto">
+          <div className="w-full  z-50 md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center bg-[#FEF3C6] mx-auto">
             <Link to="/">
               <img src={logo} alt="logo" width="100" height="100" />
             </Link>

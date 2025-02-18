@@ -10,7 +10,7 @@ const MainLayouts = () => {
     setActive(!isActive);
   };
   return (
-    <div>
+    <div id="top">
       <Navbar handleToggle={handleToggle} isActive={isActive} />
       <SmallNavbar isActive={isActive} setActive={setActive} />
       <section className="min-h-[calc(100vh-104px)]">
