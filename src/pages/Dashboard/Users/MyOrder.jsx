@@ -6,11 +6,16 @@ import useOrder from "../../../hooks/useOrder";
 
 const MyOrder = () => {
   const [order] = useOrder();
-  const [quantity, setQuantity] = useState(1);
+  // const [quantity, setQuantity] = useState(1);
   const price = 490.0;
 
-  const handleIncrease = () => setQuantity((prev) => prev + 1);
-  const handleDecrease = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
+  // const handleIncrease = () => setQuantity((prev) => prev + 1);
+  // const handleDecrease = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
+
+  const totalPrice = order.reduce(
+    (total, item) => total + item?.total_price,
+    0
+  );
 
   return (
     <div className="pt-16">
@@ -53,7 +58,7 @@ const MyOrder = () => {
                   </td>
 
                   {/* Quantity */}
-                  <td className="py-4">
+                  {/* <td className="py-4">
                     <div className="flex items-center border rounded-lg w-fit">
                       <button
                         onClick={handleDecrease}
@@ -69,16 +74,31 @@ const MyOrder = () => {
                         <FaPlus />
                       </button>
                     </div>
-                  </td>
+                  </td> */}
+                  <td>{item?.total_quantity}</td>
 
                   {/* Subtotal */}
                   <td className="py-4 font-semibold">
-                    ${(price * item?.total_price).toFixed(2)}
+                    ${(item?.total_price).toFixed(2)}
                   </td>
                 </tr>
               </tbody>
             ))}
           </table>
+        </div>
+        <div className="my-12">
+          <h1 className="text-3xl font-medium">Cart Totals</h1>
+          <div className="flex items-center gap-x-52 border-b w-96 justify-between p-2 my-6">
+            <p className="text-2xl">Subtotal</p>
+            <p>$ {totalPrice}</p>
+          </div>
+          <div className="flex items-center gap-x-52 border-b w-96 justify-between p-2 my-6">
+            <p className="text-2xl">Total</p>
+            <p>$ {totalPrice}</p>
+          </div>
+          <button className="btn bg-[#DB915E] uppercase text-white py-7">
+            product to checkout
+          </button>
         </div>
       </div>
     </div>
