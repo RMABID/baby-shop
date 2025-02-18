@@ -94,8 +94,19 @@ const Details = () => {
   return (
     <div className="pt-16">
       <div className="flex px-12 uppercase items-center gap-2 py-6 bg-[#F7F3F0]">
-        <Link to={"/"}>Home</Link> <IoIosArrowForward />
-        <Link to={"/shop"}>Shop</Link>
+        <Link
+          to={"/"}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
+          Home
+        </Link>{" "}
+        <IoIosArrowForward />
+        <Link
+          to={"/shop"}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
+          Shop
+        </Link>
         <IoIosArrowForward />
         <p>{product_name}</p>
       </div>

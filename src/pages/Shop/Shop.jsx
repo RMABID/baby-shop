@@ -24,8 +24,19 @@ const Shop = () => {
   return (
     <div className="pt-16">
       <div className="flex px-12 uppercase items-center gap-2 py-6 bg-amber-100">
-        <Link to={"/"}>Home</Link> <IoIosArrowForward />{" "}
-        <Link to={"/shop"}>Shop</Link>
+        <Link
+          to={"/"}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
+          Home
+        </Link>{" "}
+        <IoIosArrowForward />{" "}
+        <Link
+          to={"/shop"}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
+          Shop
+        </Link>
       </div>
       <div className="w-10/12 my-20 mx-auto md:grid md:grid-cols-12 gap-6 justify-center">
         <div className="col-span-3 md:block hidden">

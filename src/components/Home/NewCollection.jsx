@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import bear from "../../assets/image/cate doll.png";
 import useCard from "../../hooks/useCard";
 import LoadingSpinner from "../Share/LoadingSpinner";
 
@@ -17,7 +16,8 @@ const NewCollection = () => {
       </div>
       <div className="grid md:grid-cols-3 border-[#F7F3F0] justify-center items-center my-12 border-t border-b">
         {all_products?.slice(0, 6).map((item, index) => (
-          <div
+          <Link
+            to={`/shop/${item?._id}`}
             key={index}
             className="flex flex-col px-10 lg:px-16
        overflow-hidden  group cursor-pointer py-14 w-full items-start gap-4"
@@ -38,7 +38,7 @@ const NewCollection = () => {
                 Add to Card
               </p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

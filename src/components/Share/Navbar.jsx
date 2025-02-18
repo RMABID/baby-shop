@@ -12,7 +12,7 @@ const Navbar = ({ handleToggle, isActive }) => {
 
   return (
     <div className="navbar bg-white z-50  shadow-sm fixed w-full">
-      <div className="navbar w-10/12 mx-auto  ">
+      <div className="navbar w-11/12 mx-auto  ">
         <div className="navbar-start">
           <Link
             to={"/"}
@@ -25,17 +25,37 @@ const Navbar = ({ handleToggle, isActive }) => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <NavLink to={"/"}>Home</NavLink>
+              <NavLink
+                to={"/"}
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
+                Home
+              </NavLink>
             </li>
 
             <li>
-              <NavLink to={"/shop"}>Shop</NavLink>
+              <NavLink
+                to={"/shop"}
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
+                Shop
+              </NavLink>
             </li>
             <li>
-              <NavLink to={"/my-order"}>My Order</NavLink>
+              <NavLink
+                to={"/my-order"}
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
+                My Order
+              </NavLink>
             </li>
             <li>
-              <NavLink to={"/dashboard"}>Dashboard</NavLink>
+              <NavLink
+                to={"/dashboard"}
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
+                Dashboard
+              </NavLink>
             </li>
           </ul>
         </div>

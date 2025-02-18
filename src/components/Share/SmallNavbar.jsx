@@ -25,13 +25,27 @@ const SmallNavbar = ({ isActive, setActive }) => {
                   onClick={() => setActive(true)}
                   className="cursor-pointer w-40  p-2 rounded-sm hover:bg-[#E38443] hover:text-white hover:text-center duration-500 transition-all"
                 >
-                  <NavLink to={"/"}>Home</NavLink>
+                  <NavLink
+                    to={"/"}
+                    onClick={() =>
+                      window.scrollTo({ top: 0, behavior: "smooth" })
+                    }
+                  >
+                    Home
+                  </NavLink>
                 </li>
                 <li
                   onClick={() => setActive(true)}
                   className="cursor-pointer w-40  p-2 rounded-sm hover:bg-[#E38443] hover:text-white hover:text-center duration-500 transition-all"
                 >
-                  <NavLink to={"/shop"}>Shop</NavLink>
+                  <NavLink
+                    to={"/shop"}
+                    onClick={() =>
+                      window.scrollTo({ top: 0, behavior: "smooth" })
+                    }
+                  >
+                    Shop
+                  </NavLink>
                 </li>
                 <li
                   onClick={() => setActive(true)}
