@@ -3,11 +3,13 @@ import { FaPlus, FaMinus, FaTimes } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import { Link } from "react-router-dom";
 import useOrder from "../../../hooks/useOrder";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 const MyOrder = () => {
-  const [order] = useOrder();
+  const axiosPublic = useAxiosPublic();
+  const [order, refetch] = useOrder();
   // const [quantity, setQuantity] = useState(1);
-  const price = 490.0;
+  // const price = 490.0;
 
   // const handleIncrease = () => setQuantity((prev) => prev + 1);
   // const handleDecrease = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
@@ -17,13 +19,22 @@ const MyOrder = () => {
     0
   );
 
+  const handelDeleteOrder = async (id) => {
+    try {
+      await axiosPublic.delete(`/order-product/${id}`);
+      refetch();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="pt-16">
-      <div className="flex px-12 items-center gap-2 py-6 bg-[#F7F3F0]">
+      <div className="flex px-12 uppercase items-center gap-2 py-6 bg-[#F7F3F0]">
         <Link to={"/"}>Home</Link> <IoIosArrowForward />
         <Link to={"/shop"}>Shop</Link>
         <IoIosArrowForward />
-        {/* <p>{product_name}</p> */}
+        <p>Cart</p>
       </div>
       <div className="w-10/12 mx-auto py-12">
         <div className="overflow-x-auto">
@@ -41,15 +52,22 @@ const MyOrder = () => {
                 <tr className="border-b">
                   {/* Product Info */}
                   <td className="flex items-center gap-4 py-4">
-                    <button className="btn btn-ghost text-gray-500 hover:text-red-500">
+                    <button
+                      onClick={() => handelDeleteOrder(item?._id)}
+                      className="btn btn-ghost text-gray-500 hover:text-red-500"
+                    >
                       <FaTimes />
                     </button>
-                    <img
-                      src={item?.product_image}
-                      alt="Product"
-                      className="w-16 h-16 object-cover rounded"
-                    />
-                    <span className="text-lg">{item?.product_name}</span>
+                    <Link to={`/shop/${item?.product_order_id}`}>
+                      <img
+                        src={item?.product_image}
+                        alt="Product"
+                        className="w-16 h-16 object-cover rounded"
+                      />
+                    </Link>
+                    <Link to={`/shop/${item?.product_order_id}`}>
+                      <span className="text-lg">{item?.product_name}</span>
+                    </Link>
                   </td>
 
                   {/* Price */}
@@ -75,7 +93,7 @@ const MyOrder = () => {
                       </button>
                     </div>
                   </td> */}
-                  <td>{item?.total_quantity}</td>
+                  <td className="">{item?.total_quantity}</td>
 
                   {/* Subtotal */}
                   <td className="py-4 font-semibold">

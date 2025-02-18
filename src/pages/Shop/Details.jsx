@@ -93,7 +93,7 @@ const Details = () => {
 
   return (
     <div className="pt-16">
-      <div className="flex px-12 items-center gap-2 py-6 bg-[#F7F3F0]">
+      <div className="flex px-12 uppercase items-center gap-2 py-6 bg-[#F7F3F0]">
         <Link to={"/"}>Home</Link> <IoIosArrowForward />
         <Link to={"/shop"}>Shop</Link>
         <IoIosArrowForward />
