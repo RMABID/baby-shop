@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { IoIosArrowForward } from "react-icons/io";
-import { Link, Outlet, useParams } from "react-router-dom";
+import { Link, Outlet, useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import RelatedProducts from "../../components/Products/RelatedProducts";
@@ -18,6 +18,7 @@ const Details = () => {
   const { id } = useParams();
   const [images, setImage] = useState(null);
   const [quantity, setQuantity] = useState(0);
+  const navigate = useNavigate();
 
   const { data: product, isLoading } = useQuery({
     queryKey: ["product", id],
@@ -68,6 +69,9 @@ const Details = () => {
   };
 
   const handleAddToCart = async () => {
+    if (!user?.email) {
+      return navigate("/login");
+    }
     if (quantity === 0) {
       return toast.error("No available Stock");
     }

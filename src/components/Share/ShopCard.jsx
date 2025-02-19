@@ -4,6 +4,7 @@ const ShopCard = ({ item }) => {
   const { brand, product_name, price, image, _id } = item;
   return (
     <Link
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       to={`/shop/${_id}`}
       id="top"
       className="flex flex-col overflow-hidden group gap-3 items-center justify-center border p-2 rounded-xl"

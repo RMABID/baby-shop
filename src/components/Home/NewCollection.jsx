@@ -17,6 +17,7 @@ const NewCollection = () => {
       <div className="grid md:grid-cols-3 border-[#F7F3F0] justify-center items-center my-12 border-t border-b">
         {all_products?.slice(0, 6).map((item, index) => (
           <Link
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             to={`/shop/${item?._id}`}
             key={index}
             className="flex flex-col px-10 lg:px-16
