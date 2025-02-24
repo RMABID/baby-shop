@@ -72,6 +72,7 @@ const Details = () => {
     if (!user?.email) {
       return navigate("/login");
     }
+
     if (quantity === 0) {
       return toast.error("No available Stock");
     }

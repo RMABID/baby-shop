@@ -24,7 +24,7 @@ const Playground = () => {
           </button>
           <button className="btn relative group uppercase duration-500 transition-all  text-white font-medium bg-[#91C6BE] hover:translate-x-1 overflow-hidden hover:px-8 py-6 border-none">
             <span className="text-white  group-hover:-translate-x-6 duration-500 transition-all">
-              Shop Now
+              Read More
             </span>
             <span className="absolute translate-x-40 group-hover:translate-x-10 text-lg duration-500 transition-all">
               <IoIosArrowForward />
